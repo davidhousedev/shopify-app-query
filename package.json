@@ -2,11 +2,15 @@
   "name": "shopify-app-query",
   "version": "0.0.1",
   "description": "A tool for handling Shopify GraphQL API requests.",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "ci": "pnpm run build && pnpm run check-format",
+    "ci": "pnpm run build && pnpm run check-format && pnpm run check-exports && pnpm run test",
     "format": "prettier --write .",
-    "check-format": "prettier --check ."
+    "check-format": "prettier --check .",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+    "test": "vitest run",
+    "dev": "vitest"
   },
   "keywords": [
     "shopify",
@@ -28,7 +32,9 @@
   "type": "module",
   "license": "MIT",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.16.4",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.3"
   }
 }
