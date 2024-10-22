@@ -1,1 +1,1 @@
-export { add } from './utils/foo.js'
+export { default as handleRequest } from './handleRequest.js'
